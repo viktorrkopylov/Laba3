@@ -44,7 +44,7 @@ public:
 
 
 
-class Vehicle {
+class Vehicle : public Company {
 public:
     string brand;
     int price;
