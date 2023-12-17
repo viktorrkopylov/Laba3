@@ -10,8 +10,9 @@ public:
     int count_of_people;
 
     Company() : name("Name"), count_of_people(10), age(19), price(10000) {}
-
     Company(string name, int count_of_people, int age, int price) : name(name), count_of_people(count_of_people), age(age), price(price) {}
+    
+    ~Company() { cout << "Destructor for 'Company' was called\n " << endl; }
 
     void CompanyInfo() {
         cout << "Название компании: " << name << "\nКоличество сотрудников " << count_of_people << "\nВозраст компании: " << age << "\nСтоимость компании: " << price << "\n___________" << endl;
@@ -31,6 +32,8 @@ public:
 
     Employee() : members_of_family(3), money(1000000) {}
     Employee( string name_of_emp, int age_of_emp, int members_of_family, int money) : name_of_emp(name_of_emp), age_of_emp(age_of_emp), members_of_family(members_of_family), money(money) {}
+   
+    ~Employee() { cout << "Destructor for 'Employee' was called\n "; }
 
     void EmployeeInfo() {
         cout << "Имя рабочего: " << name_of_emp << "\nВозраст: " << age_of_emp << "\nСостояние: " << money << "\nКоличество членов семьи: " << members_of_family << "\n___________" << endl;
@@ -55,6 +58,8 @@ public:
     Vehicle() : brand("Vehicle"), price(0), year(0), color("Color") {}
     Vehicle(string brand, int price, int year, string color) : brand(brand), price(price), year(year), color(color) {}
 
+    ~Vehicle() { cout << "Destructor for 'Vehicle' was called\n "; }
+
     void VehicleInfo() {
         cout << "Бренд: " << brand << "\nЦена: $" << price << "\nГод выпуска: " << year << "\nЦвет: " << color << "\n___________" << endl;
     }
@@ -71,9 +76,9 @@ public:
     int mass;
 
     Truck() : capacity(0), mass(0) {}
-
     Truck(int capacity, int mass, string brand, int price, int year, string color) : capacity(capacity), mass(mass), Vehicle(brand, price, year, color) {}
-
+    
+    ~Truck() { cout << "Destructor for 'Truck' was called\n "; }                        // Деструктор
 
     void TruckInfo() {
         cout << "Бренд: " << brand << "\nГрузоподъемность: " << capacity << "\nМасса " << mass << "\nЦена: $" << price << "\n___________" << endl;
@@ -93,19 +98,15 @@ public:
     int weight;
     
     Car() : seats(seats), weight(weight) {}
-
     Car(int seats, int weight, string brand, int price, int year, string color) : seats(seats), weight(weight), Vehicle(brand, price, year, color) {}
-
-
     Car(int seats, int weight, Vehicle& vehicle) : seats(seats), weight(weight), Vehicle(vehicle) {}
+
+    ~Car() { cout << "Destructor for 'Car' was called\n "; }
 
     void CarInfo() {
         cout << "Количество мест: " << seats << "\nМасса: " << weight << "\nБренд: " << brand << "\nЦена: $" << price << "\nГод выпуска: " << year << "\nЦвет: " << color << endl;
     }
 };
-
-
-
 
 
 
